@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/calculatorFragment">
+
+    <fragment
+        android:id="@+id/calculatorFragment"
+        android:name="com.mmk.testapplication.ui.fragments.calculator.CalculatorFragment"
+        android:label="fragment_calculator"
+        tools:layout="@layout/fragment_calculator" />
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.mmk.testapplication.ui.fragments.map.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" />
+    <fragment
+        android:id="@+id/qrCodeScannerFragment"
+        android:name="com.mmk.testapplication.ui.fragments.qrcode.QrCodeScannerFragment"
+        android:label="fragment_qr_code_scanner"
+        tools:layout="@layout/fragment_qr_code_scanner" />
+    <fragment
+        android:id="@+id/weatherFragment"
+        android:name="com.mmk.testapplication.ui.fragments.weather.WeatherFragment"
+        android:label="fragment_weather"
+        tools:layout="@layout/fragment_weather" />
+</navigation>

@@ -1,0 +1,88 @@
+apply plugin: 'com.android.application'
+apply plugin: 'dagger.hilt.android.plugin'
+
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.mmk.testapplication"
+        minSdkVersion 16
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildFeatures{
+        dataBinding true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //Enable multidex
+    implementation 'com.android.support:multidex:1.0.3'
+
+
+    //RxJava and RxAndroid - a library for composing asynchronous and event-based programs by using observable sequences
+    implementation "io.reactivex.rxjava3:rxandroid:$version_rx_android"
+    implementation "io.reactivex.rxjava3:rxjava:$version_rx_java"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$version_rx_java_retrofit_adapter"
+
+
+    //Hilt Dependency Injection (replacement for Dagger dependency injection)
+    implementation "com.google.dagger:hilt-android:$version_hilt"
+    annotationProcessor "com.google.dagger:hilt-android-compiler:$version_hilt"
+
+    //Hilt for ViewModel support
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$version_hilt_viewmodel"
+    annotationProcessor "androidx.hilt:hilt-compiler:$version_hilt_viewmodel"
+
+
+    //Navigation component - For transitions between fragments
+    implementation "androidx.navigation:navigation-fragment:$version_navigation"
+    implementation "androidx.navigation:navigation-ui:$version_navigation"
+
+    // ViewModel and LiveData
+    implementation "androidx.lifecycle:lifecycle-extensions:$version_lifecycle_extensions"
+
+
+    // Moshi convertor - for serialization to and from JSON.
+    implementation "com.squareup.moshi:moshi:$version_moshi"
+    implementation "com.squareup.moshi:moshi-kotlin:$version_moshi"
+
+    // Retrofit and  Moshi Converter for Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
+    implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
+
+    //OkHttp Logging Interceptor - To see loggings requests and responses
+    implementation "com.squareup.okhttp3:logging-interceptor:$version_okhttp_logging"
+
+    //Timber - extensible API which provides utility on top of Android's normal Log class.
+    implementation "com.jakewharton.timber:timber:$version_timber"
+
+
+
+
+}
