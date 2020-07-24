@@ -8,5 +8,8 @@
     <string name="title_qr_code_scan_bottom">QR  Code</string>
     <string name="text_btn_scan">Scan</string>
     <string name="text_scan_qr_code_title">Scan QR code</string>
-    <string name="text_scan_qr_code_description">Place QR code inside the frame to scan please click Scan button or QR code image</string>
+    <string name="text_scan_qr_code_description">Place QR code inside the frame, to scan please click Scan button or QR code image</string>
+    <string name="error_google_play_services">Google Play services is not installed in your phone</string>
+    <string name="denied_permission_qr_code">To scan barcode you need to give permission</string>
+    <string name="denied_permission_location">To use map feature , you need to give a permission</string>
 </resources>

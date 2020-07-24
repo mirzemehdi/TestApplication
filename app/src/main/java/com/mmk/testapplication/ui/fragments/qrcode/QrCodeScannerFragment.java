@@ -69,7 +69,7 @@ public class QrCodeScannerFragment extends Fragment implements ZBarScannerView.R
                     @Override
                     public void onPermissionDenied(PermissionDeniedResponse response) {
                         Toast.makeText(getContext(),
-                                "To scan barcode you need to give permission",
+                                getString(R.string.denied_permission_qr_code),
                                 Toast.LENGTH_SHORT).show();
                     }
 
