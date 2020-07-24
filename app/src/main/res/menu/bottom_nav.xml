@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/weatherFragment"
+        android:icon="@drawable/ic_cloud"
+        android:title="@string/title_weather_bottom"/>
+
+    <item android:id="@+id/mapFragment"
+        android:icon="@drawable/ic_location"
+        android:title="@string/title_map_bottom"/>
+
+    <item android:id="@+id/calculatorFragment"
+        android:icon="@drawable/ic_calculator"
+        android:title="@string/title_calculator_bottom"/>
+
+    <item android:id="@+id/qrCodeScannerFragment"
+        android:icon="@drawable/ic_qr_code"
+        android:title="@string/title_qr_code_scan_bottom"/>
+
+</menu>

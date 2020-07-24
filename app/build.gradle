@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.mmk.testapplication"
-        minSdkVersion 16
+        minSdkVersion 17
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -43,6 +43,9 @@ dependencies {
 
     //Enable multidex
     implementation 'com.android.support:multidex:1.0.3'
+
+    //Material design
+    implementation 'com.google.android.material:material:1.1.0'
 
 
     //RxJava and RxAndroid - a library for composing asynchronous and event-based programs by using observable sequences
@@ -81,6 +84,11 @@ dependencies {
 
     //Timber - extensible API which provides utility on top of Android's normal Log class.
     implementation "com.jakewharton.timber:timber:$version_timber"
+
+    //QR Code Scanner
+    implementation 'me.dm7.barcodescanner:zbar:1.9.13'
+    implementation 'com.karumi:dexter:5.0.0'
+
 
 
 

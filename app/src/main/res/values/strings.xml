@@ -2,4 +2,11 @@
     <string name="app_name">TestApplication</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_weather_bottom">Weather</string>
+    <string name="title_map_bottom">Map</string>
+    <string name="title_calculator_bottom">Calculator</string>
+    <string name="title_qr_code_scan_bottom">QR  Code</string>
+    <string name="text_btn_scan">Scan</string>
+    <string name="text_scan_qr_code_title">Scan QR code</string>
+    <string name="text_scan_qr_code_description">Place QR code inside the frame to scan please click Scan button or QR code image</string>
 </resources>
