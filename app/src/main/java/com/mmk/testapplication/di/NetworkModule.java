@@ -13,7 +13,7 @@ import dagger.hilt.android.components.ApplicationComponent;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.moshi.MoshiConverterFactory;
 
 import javax.inject.Singleton;
@@ -45,8 +45,8 @@ public abstract class NetworkModule {
 
     @Provides
     @Singleton
-    public static RxJava2CallAdapterFactory provideRxJavaCallAdapter() {
-        return RxJava2CallAdapterFactory.create();
+    public static RxJava3CallAdapterFactory provideRxJavaCallAdapter() {
+        return RxJava3CallAdapterFactory.create();
     }
 
 
@@ -62,7 +62,7 @@ public abstract class NetworkModule {
     @Singleton
     public static Retrofit provideRetrofit(
             MoshiConverterFactory converterFactory,
-            RxJava2CallAdapterFactory adapterFactory,
+            RxJava3CallAdapterFactory adapterFactory,
             OkHttpClient client
     ) {
         return new Retrofit.Builder()

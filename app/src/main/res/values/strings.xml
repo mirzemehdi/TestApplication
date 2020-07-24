@@ -12,4 +12,7 @@
     <string name="error_google_play_services">Google Play services is not installed in your phone</string>
     <string name="denied_permission_qr_code">To scan barcode you need to give permission</string>
     <string name="denied_permission_location">To use map feature , you need to give a permission</string>
+    <string name="text_humidity">Humidity</string>
+    <string name="text_wind">Wind</string>
+    <string name="text_baku">Baku</string>
 </resources>

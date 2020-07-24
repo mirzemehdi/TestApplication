@@ -17,6 +17,8 @@ buildscript {
         version_rx_android="3.0.0"
         version_rx_java="3.0.4"
         version_rx_java_retrofit_adapter="2.9.0"
+        version_picasso="2.5.2"
+        version_google_map="17.0.0"
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.0.0"

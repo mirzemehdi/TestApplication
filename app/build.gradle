@@ -51,7 +51,7 @@ dependencies {
     //RxJava and RxAndroid - a library for composing asynchronous and event-based programs by using observable sequences
     implementation "io.reactivex.rxjava3:rxandroid:$version_rx_android"
     implementation "io.reactivex.rxjava3:rxjava:$version_rx_java"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$version_rx_java_retrofit_adapter"
+    implementation "com.squareup.retrofit2:adapter-rxjava3:$version_rx_java_retrofit_adapter"
 
 
     //Hilt Dependency Injection (replacement for Dagger dependency injection)
@@ -90,8 +90,11 @@ dependencies {
     implementation 'com.karumi:dexter:5.0.0'
 
     //Google map library
-    implementation "com.google.android.gms:play-services-location:17.0.0"
-    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation "com.google.android.gms:play-services-location:$version_google_map"
+    implementation "com.google.android.gms:play-services-maps:$version_google_map"
+
+    //Picasso - To load images from the internet
+    implementation "com.squareup.picasso:picasso:$version_picasso"
 
 
 
