@@ -7,4 +7,47 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+
+    <style name="CustomShapeButton" parent="Widget.Neumorph.Button">
+        <item name="neumorph_shapeType">flat</item>
+        <item name="neumorph_shadowElevation">6dp</item>
+        <item name="neumorph_shapeAppearance">@style/CustomShapeAppearance</item>
+        <item name="neumorph_backgroundColor">@color/colorCalculatorBtn</item>
+        <item name="neumorph_shadowColorLight">@color/colorLightShadow</item>
+        <item name="neumorph_shadowColorDark">@color/colorDarkShadow</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="fontFamily">@font/tthoves_medium</item>
+        <item name="android:hapticFeedbackEnabled">true</item>
+        <item name="android:soundEffectsEnabled">true</item>
+
+    </style>
+
+
+    <style name="CustomShapeDeleteButton" parent="Widget.Neumorph.ImageButton" >
+        <item name="neumorph_shapeType">flat</item>
+        <item name="neumorph_shadowElevation">6dp</item>
+        <item name="neumorph_shapeAppearance">@style/CustomShapeAppearance</item>
+        <item name="neumorph_backgroundColor">@color/colorCalculatorBtn</item>
+        <item name="neumorph_shadowColorLight">@color/colorLightShadow</item>
+        <item name="neumorph_shadowColorDark">@color/colorDarkShadow</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:hapticFeedbackEnabled">true</item>
+        <item name="android:soundEffectsEnabled">true</item>
+
+
+    </style>
+
+
+    <style name="CustomShapeAppearance">
+        <item name="neumorph_cornerFamily">rounded</item>
+        <item name="neumorph_cornerSize">32dp</item>
+
+    </style>
+
+
 </resources>

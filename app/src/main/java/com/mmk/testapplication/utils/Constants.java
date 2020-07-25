@@ -6,6 +6,9 @@ public  class Constants {
     public static final String WEATHER_ICONS_BASE_URL="http://openweathermap.org/img/wn/";
     public static final String BAKU_LAT="40.409264";
     public static final String BAKU_LNG="49.867092";
+    public static final String PREF_CALCULATOR="CalculatorPref";
+    public static final String KEY_RESULT="resultKey";
+    public static final String KEY_EXPRESSION="expression";
 
 
 }

@@ -12,6 +12,14 @@
     <color name="colorWeatherBackground">#F49571</color>
 
     <color name="colorBox">#e0dfe2</color>
+    <color name="colorCalculatorBtn">#f0f0f2</color>
+    <color name="colorDarkShadow">#e3e0e7</color>
+    <color name="colorLightShadow">#f8f8fa</color>
+
+    <color name="colorCalculatorBackground">#f0f0f2</color>
+
+
+
 
 
 

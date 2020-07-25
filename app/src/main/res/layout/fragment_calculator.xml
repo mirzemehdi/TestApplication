@@ -1,16 +1,269 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.fragments.calculator.CalculatorFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+    <variable
+        name="viewModel"
+        type="com.mmk.testapplication.ui.fragments.calculator.CalculatorViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="24sp"
-        android:gravity="center"
-        android:text="Calculator Fragment" />
+        android:background="@color/colorCalculatorBackground"
+        tools:context=".ui.fragments.calculator.CalculatorFragment">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.4" />
+
+        <View
+            android:id="@+id/line_horizontal"
+            android:layout_width="0dp"
+            app:layout_constraintBottom_toTopOf="@id/guideline2"
+            android:background="@color/colorSilver"
+            android:layout_margin="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="1dp"/>
+
+        <soup.neumorphism.NeumorphButton
+            android:id="@+id/button9"
+            style="@style/CustomShapeButton"
+            android:text="@string/value_1"
+            android:onClick="@{()  -> viewModel.onButtonClicked(`1`) }"
+            app:layout_constraintBottom_toTopOf="@+id/button10"
+            app:layout_constraintEnd_toStartOf="@+id/button13"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline2"
+            app:layout_constraintVertical_chainStyle="spread" />
+
+        <soup.neumorphism.NeumorphButton
+            android:id="@+id/button10"
+            style="@style/CustomShapeButton"
+            android:onClick="@{()  -> viewModel.onButtonClicked(`4`) }"
+
+            android:text="@string/value_4"
+            app:layout_constraintBottom_toTopOf="@+id/button12"
+            app:layout_constraintEnd_toStartOf="@+id/button15"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button9" />
+
+        <soup.neumorphism.NeumorphButton
+            android:id="@+id/button11"
+            style="@style/CustomShapeButton"
+            android:text="@string/value_plus"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            android:onClick="@{()  -> viewModel.onButtonClicked(`+`) }"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button19"
+            app:layout_constraintTop_toBottomOf="@+id/button17"
+            app:neumorph_strokeColor="@color/colorAccent"
+            app:neumorph_strokeWidth="2dp" />
+
+        <soup.neumorphism.NeumorphButton
+            android:id="@+id/button17"
+            style="@style/CustomShapeButton"
+            android:text="@string/value_equal"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:onClick="@{()  -> viewModel.onButtonClicked(`=`) }"
+
+            app:layout_constraintBottom_toTopOf="@+id/button11"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button14"
+            app:layout_constraintTop_toTopOf="@+id/guideline2"
+            app:layout_constraintVertical_chainStyle="spread"
+            app:neumorph_backgroundColor="@color/colorAccent" />
+
+
+        <soup.neumorphism.NeumorphButton
+            android:id="@+id/button12"
+            style="@style/CustomShapeButton"
+            android:onClick="@{()  -> viewModel.onButtonClicked(`7`) }"
+
+            android:text="@string/value_7"
+
+            app:layout_constraintBottom_toTopOf="@+id/button20"
+            app:layout_constraintEnd_toStartOf="@+id/button18"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button10" />
+
+        <soup.neumorphism.NeumorphButton
+            android:id="@+id/button13"
+            style="@style/CustomShapeButton"
+            android:onClick="@{()  -> viewModel.onButtonClicked(`2`) }"
+
+            android:text="@string/value_2"
+            app:layout_constraintBottom_toTopOf="@+id/button15"
+            app:layout_constraintEnd_toStartOf="@+id/button14"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button9"
+            app:layout_constraintTop_toTopOf="@+id/guideline2"
+            app:layout_constraintVertical_chainStyle="spread" />
+
+        <soup.neumorphism.NeumorphButton
+            android:id="@+id/button14"
+            style="@style/CustomShapeButton"
+            android:onClick="@{()  -> viewModel.onButtonClicked(`3`) }"
+
+            android:text="@string/value_3"
+            app:layout_constraintBottom_toTopOf="@+id/button16"
+            app:layout_constraintEnd_toStartOf="@+id/button17"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button13"
+            app:layout_constraintTop_toTopOf="@+id/guideline2"
+            app:layout_constraintVertical_chainStyle="spread" />
+
+        <soup.neumorphism.NeumorphButton
+            android:id="@+id/button15"
+            style="@style/CustomShapeButton"
+            android:onClick="@{()  -> viewModel.onButtonClicked(`5`) }"
+
+            android:text="@string/value_5"
+            app:layout_constraintBottom_toTopOf="@+id/button18"
+            app:layout_constraintEnd_toStartOf="@+id/button16"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button10"
+            app:layout_constraintTop_toBottomOf="@+id/button13" />
+
+        <soup.neumorphism.NeumorphButton
+            android:id="@+id/button16"
+            style="@style/CustomShapeButton"
+            android:onClick="@{()  -> viewModel.onButtonClicked(`6`) }"
+
+            android:text="@string/value_6"
+            app:layout_constraintBottom_toTopOf="@+id/button19"
+            app:layout_constraintEnd_toStartOf="@+id/button17"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button15"
+            app:layout_constraintTop_toBottomOf="@+id/button14" />
+
+
+        <soup.neumorphism.NeumorphButton
+            android:id="@+id/button18"
+            style="@style/CustomShapeButton"
+
+            android:text="@string/value_8"
+            android:onClick="@{()  -> viewModel.onButtonClicked(`8`) }"
+
+
+            app:layout_constraintBottom_toTopOf="@+id/button21"
+            app:layout_constraintEnd_toStartOf="@+id/button19"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button12"
+            app:layout_constraintTop_toBottomOf="@+id/button15" />
+
+        <soup.neumorphism.NeumorphButton
+            android:id="@+id/button19"
+            style="@style/CustomShapeButton"
+
+            android:text="@string/value_9"
+            android:onClick="@{()  -> viewModel.onButtonClicked(`9`) }"
+
+            app:layout_constraintBottom_toTopOf="@+id/button22"
+            app:layout_constraintEnd_toStartOf="@+id/button11"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button18"
+            app:layout_constraintTop_toBottomOf="@+id/button16" />
+
+        <soup.neumorphism.NeumorphButton
+            android:id="@+id/button20"
+            style="@style/CustomShapeButton"
+
+            android:text="@string/value_point"
+            android:onClick="@{() -> viewModel.onButtonClicked(`.`)}"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/button21"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button12" />
+
+        <soup.neumorphism.NeumorphButton
+            android:id="@+id/button21"
+            style="@style/CustomShapeButton"
+
+            android:text="@string/value_0"
+            android:onClick="@{()  -> viewModel.onButtonClicked(`0`) }"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/button22"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button20"
+            app:layout_constraintTop_toBottomOf="@+id/button18" />
+
+        <soup.neumorphism.NeumorphImageButton
+            android:id="@+id/button22"
+            style="@style/CustomShapeDeleteButton"
+            android:src="@drawable/ic_delete"
+            android:onClick="@{()  -> viewModel.onButtonClicked(`x`) }"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/button11"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button21"
+            app:layout_constraintTop_toBottomOf="@+id/button19" />
+
+
+        <TextView
+            android:id="@+id/text_view_calculator_expression"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/tthoves_medium"
+            android:gravity="end"
+
+            android:paddingStart="16dp"
+            android:paddingTop="40dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="32sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1"
+            android:text="@={viewModel.expression}"
+            app:layout_constraintBottom_toTopOf="@+id/text_view_calculator_result"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            android:maxLines="4"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="2000+27+" />
+
+
+        <TextView
+            android:id="@+id/text_view_calculator_result"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/tthoves_bold"
+            android:gravity="end"
+            android:maxLines="1"
+            android:paddingStart="16dp"
+            android:paddingTop="40dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp"
+            android:text="@{viewModel.result}"
+            android:textColor="@color/colorBlack"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toTopOf="@id/line_horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="= 27.09" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

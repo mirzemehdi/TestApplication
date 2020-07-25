@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.mmk.testapplication"
-        minSdkVersion 17
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -95,6 +95,10 @@ dependencies {
 
     //Picasso - To load images from the internet
     implementation "com.squareup.picasso:picasso:$version_picasso"
+
+    //Neumorphism Button for better UI
+    implementation 'com.github.fornewid:neumorphism:0.1.11'
+
 
 
 

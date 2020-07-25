@@ -15,4 +15,24 @@
     <string name="text_humidity">Humidity</string>
     <string name="text_wind">Wind</string>
     <string name="text_baku">Baku</string>
+
+
+    <string name="value_1">1</string>
+    <string name="value_2">2</string>
+    <string name="value_3">3</string>
+    <string name="value_4">4</string>
+    <string name="value_5">5</string>
+    <string name="value_6">6</string>
+    <string name="value_7">7</string>
+    <string name="value_8">8</string>
+    <string name="value_9">9</string>
+    <string name="value_0">0</string>
+    <string name="value_point">.</string>
+    <string name="value_equal">=</string>
+    <string name="value_plus">+</string>
+    <string name="value_delete"><![CDATA[&lt;—]]></string>
+
+
+
+
 </resources>
