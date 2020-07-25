@@ -15,6 +15,7 @@ public class WeatherRepository {
         this.weatherApiService = weatherApiService;
     }
 
+    //Returns RxJava Single
     public Single<ResponseWeatherTemp> getWeatherInfo(){
         return weatherApiService.getWeatherTemperature();
     }

@@ -23,6 +23,8 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -36,7 +38,9 @@ import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.karumi.dexter.listener.single.PermissionListener;
 import com.mmk.testapplication.R;
+import com.mmk.testapplication.model.MetroStation;
 import com.mmk.testapplication.ui.fragments.qrcode.QrCodeScannerFragment;
+import com.mmk.testapplication.utils.Constants;
 
 import java.util.List;
 
@@ -75,8 +79,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, OnCompl
 
     }
 
-
-
+    //Checking Google Play services is installed or not
     private boolean checkServicesOkay(){
         int available= GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(getContext());
         if (available== ConnectionResult.SUCCESS) return true;
@@ -132,10 +135,12 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, OnCompl
     }
 
     private void addStationLocations() {
-        mapViewModel.getStationLocations().observe(getViewLifecycleOwner(), latLngList -> {
-                for(LatLng latLng:latLngList){
+        mapViewModel.getMetroStations().observe(getViewLifecycleOwner(), stationList -> {
+                for(MetroStation station:stationList){
                     MarkerOptions markerOptions=new MarkerOptions();
-                    markerOptions.position(latLng);
+                    markerOptions.title(station.getName());
+                    markerOptions.icon(Constants.bitmapDescriptorFromVector(getContext(),R.drawable.ic_metro));
+                    markerOptions.position(station.getLocation());
                     mMap.addMarker(markerOptions);
                 }
         });
@@ -153,6 +158,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, OnCompl
         }
     }
 
+    //This function is called when getting my location is successfull
     @Override
     public void onComplete(@NonNull Task<Location> task) {
         if (task.isSuccessful() && task.getResult()!=null){

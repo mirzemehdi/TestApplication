@@ -56,6 +56,11 @@ public class QrCodeScannerFragment extends Fragment implements ZBarScannerView.R
     }
 
     private void requestCameraPermission() {
+        /*
+        Dexter library is used to getting permissions from a user.
+        We need Camera permission to read QR code
+         */
+
         Dexter.withActivity(getActivity())
                 .withPermission(Manifest.permission.CAMERA)
                 .withListener(new PermissionListener() {
@@ -89,6 +94,10 @@ public class QrCodeScannerFragment extends Fragment implements ZBarScannerView.R
 
     }
 
+    /*
+    * This function is called when qr code reads successfully
+    *
+    * */
     @Override
     public void handleResult(Result rawResult) {
         binding.setIsScanning(false);
@@ -99,6 +108,7 @@ public class QrCodeScannerFragment extends Fragment implements ZBarScannerView.R
     public void onClick(View v) {
         if (v==binding.buttonScan || v==binding.imageViewQrCodeScanner){
             requestCameraPermission();
+            binding.textViewQrCodeResult.setText("");
         }
     }
 }

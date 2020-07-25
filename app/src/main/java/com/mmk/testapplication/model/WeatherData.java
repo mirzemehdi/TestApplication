@@ -2,6 +2,8 @@ package com.mmk.testapplication.model;
 
 import com.mmk.testapplication.utils.Constants;
 
+
+
 public class WeatherData {
 
     private int temperature;

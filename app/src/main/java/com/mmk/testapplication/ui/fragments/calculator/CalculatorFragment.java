@@ -1,9 +1,11 @@
 package com.mmk.testapplication.ui.fragments.calculator;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -15,6 +17,7 @@ import android.widget.Toast;
 
 import com.mmk.testapplication.R;
 import com.mmk.testapplication.databinding.FragmentCalculatorBinding;
+import com.mmk.testapplication.utils.Constants;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
@@ -46,8 +49,28 @@ public class CalculatorFragment extends Fragment {
     }
 
     private void observe() {
-        calculatorViewModel.getEqualButton().observe(getViewLifecycleOwner(), aVoid -> {
+        calculatorViewModel.getIsOperationCompleted().observe(getViewLifecycleOwner(), isCompleted -> {
 
+            int bigTextSize = Constants.getPixelSizeFromId(this,R.dimen.expressionTextViewSize);
+            int smallTextSize = Constants.getPixelSizeFromId(this,R.dimen.resultTextViewSize);
+            Typeface typefaceBold = ResourcesCompat.getFont(getContext(),R.font.tthoves_bold);
+            Typeface typefaceMedium = ResourcesCompat.getFont(getContext(),R.font.tthoves_medium);
+
+            //If equal button is clicked then resultTextSize and font will be changed accordingly
+            if (isCompleted){
+                binding.textViewCalculatorResult.setTextSize(bigTextSize);
+                binding.textViewCalculatorExpression.setTextSize(smallTextSize);
+
+                binding.textViewCalculatorExpression.setTypeface(typefaceMedium);
+                binding.textViewCalculatorResult.setTypeface(typefaceBold);
+
+            }else {
+                binding.textViewCalculatorResult.setTextSize(smallTextSize);
+                binding.textViewCalculatorExpression.setTextSize(bigTextSize);
+
+                binding.textViewCalculatorExpression.setTypeface(typefaceBold);
+                binding.textViewCalculatorResult.setTypeface(typefaceMedium);
+            }
         });
     }
 }

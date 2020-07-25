@@ -14,9 +14,15 @@ import com.mmk.testapplication.databinding.ActivityMainBinding;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
+/**
+ * It is written in single activity logic.That's why there is no so much code here
+ */
+
 @AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
     private NavController navController;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

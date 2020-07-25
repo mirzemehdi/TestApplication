@@ -8,6 +8,11 @@ public class CalculatorRepository {
     public CalculatorRepository() {
     }
 
+
+    /*
+    * Using "+" limiter expression is splitted and values are added together
+    *
+    * */
     public String calculateExpression(String expression) {
         if (expression == null || expression.isEmpty()) return "";
         String[] numbers = expression.split("\\+");
@@ -29,6 +34,10 @@ public class CalculatorRepository {
 
     }
 
+    /*
+    * Gets current expression and based on written new value
+    * it deletes or returns new expression
+    * */
     public String getExpression(String currentExpr, String value) {
         String finalExpression = currentExpr;
         if (value.equals("x")) {
@@ -41,6 +50,13 @@ public class CalculatorRepository {
         return finalExpression;
     }
 
+
+    /*
+    * Checks that we can append new value or not
+    * cases like writing more than one point in number like 5..5 or 5.4.4
+    * and writing more than one zero in beginning like 005 or 000002
+    *
+    * */
     private boolean canAddNewValue(String currentExpr, String value) {
 
 

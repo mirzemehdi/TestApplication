@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="resultTextViewSize">32sp</dimen>
+    <dimen name="expressionTextViewSize">40sp</dimen>
+</resources>

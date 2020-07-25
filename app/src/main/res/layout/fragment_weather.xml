@@ -5,8 +5,10 @@
 
     <data>
         <variable
-            name="weather"
-            type="com.mmk.testapplication.model.WeatherData" />
+            name="viewModel"
+            type="com.mmk.testapplication.ui.fragments.weather.WeatherViewModel" />
+
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,16 +18,28 @@
         tools:context=".ui.fragments.weather.WeatherFragment">
 
 
+        <ProgressBar
+            android:layout_width="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            android:indeterminateTint="#fff"
+            app:layout_constraintEnd_toEndOf="parent"
+            isVisible="@{viewModel.isLoading}"
+            android:layout_height="wrap_content"/>
+
         <TextView
             android:id="@+id/text_view_weather_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            isVisible="@{!viewModel.isLoading}"
 
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/tthoves_medium"
-            android:text="@{weather.description}"
+            android:text="@{viewModel.weather.description}"
             tools:text="Broken\nclouds"
             android:textColor="#fff"
             android:textSize="32sp"
@@ -41,7 +55,9 @@
            app:layout_constraintEnd_toEndOf="parent"
            android:layout_margin="32dp"
            tools:src="@drawable/ic_cloud"
-           imageUrl="@{weather.imageUrl}"
+           isVisible="@{!viewModel.isLoading}"
+
+           imageUrl="@{viewModel.weather.imageUrl}"
            android:scaleType="centerCrop"
            android:layout_height="200dp"/>
 
@@ -52,6 +68,8 @@
             android:layout_marginStart="8dp"
             android:src="@drawable/ic_location"
             android:tint="#fff"
+            isVisible="@{!viewModel.isLoading}"
+
             app:layout_constraintBottom_toBottomOf="@id/text_view_weather_country"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/text_view_weather_country" />
@@ -65,9 +83,11 @@
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/tthoves_medium"
             tools:text="@string/text_baku"
-            android:text="@{weather.country}"
+            android:text="@{viewModel.weather.country}"
             android:textColor="#fff"
             android:textSize="48sp"
+            isVisible="@{!viewModel.isLoading}"
+
             app:layout_constraintBottom_toTopOf="@id/text_view_weather_value"
             app:layout_constraintStart_toEndOf="@id/image_view_weather_location" />
 
@@ -80,7 +100,9 @@
             android:fontFamily="@font/tthoves_bold"
             android:textColor="#fff"
             android:textSize="64sp"
-            android:text="@{weather.temperature}"
+            isVisible="@{!viewModel.isLoading}"
+
+            android:text="@{viewModel.weather.temperature}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/text_view_weather_country"
             tools:text="32\u00B0" />
@@ -94,6 +116,8 @@
             app:cardElevation="4dp"
             app:cardUseCompatPadding="true"
             app:contentPadding="8dp"
+            isVisible="@{!viewModel.isLoading}"
+
             app:layout_constraintBottom_toBottomOf="@id/text_view_weather_value"
             app:layout_constraintEnd_toStartOf="@id/card_view_weather_humidity"
             app:layout_constraintHorizontal_bias="1"
@@ -121,7 +145,7 @@
                     android:fontFamily="@font/tthoves_medium"
                     android:textColor="@color/colorBlack"
                     android:textSize="18sp"
-                    android:text="@{weather.windSpeed}"
+                    android:text="@{viewModel.weather.windSpeed}"
 
                     tools:text="16m/s" />
 
@@ -136,6 +160,8 @@
             android:layout_marginEnd="16dp"
             app:cardBackgroundColor="@color/colorBox"
             app:cardElevation="4dp"
+            isVisible="@{!viewModel.isLoading}"
+
             app:cardUseCompatPadding="true"
             app:contentPadding="8dp"
             app:layout_constraintBottom_toBottomOf="@id/text_view_weather_value"
@@ -163,7 +189,7 @@
                     android:fontFamily="@font/tthoves_medium"
                     android:textColor="@color/colorBlack"
                     android:textSize="18sp"
-                    android:text="@{weather.humidity}"
+                    android:text="@{viewModel.weather.humidity}"
                     tools:text="79%" />
 
             </LinearLayout>

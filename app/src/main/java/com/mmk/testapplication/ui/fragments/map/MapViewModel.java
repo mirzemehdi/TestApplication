@@ -10,6 +10,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.google.android.gms.maps.model.LatLng;
+import com.mmk.testapplication.model.MetroStation;
 import com.mmk.testapplication.repository.MapRepository;
 
 import java.util.List;
@@ -17,7 +18,7 @@ import java.util.List;
 public class MapViewModel extends AndroidViewModel {
 
     private final MapRepository mapRepository;
-    private final MutableLiveData<List<LatLng>> stationLocations=new MutableLiveData<>();
+    private final MutableLiveData<List<MetroStation>> stations=new MutableLiveData<>();
 
 
 
@@ -27,9 +28,9 @@ public class MapViewModel extends AndroidViewModel {
         this.mapRepository = mapRepository;
     }
 
-    public LiveData<List<LatLng>> getStationLocations(){
-        List<LatLng> latLngList=mapRepository.getStationsLocations();
-        stationLocations.postValue(latLngList);
-        return stationLocations;
+    public LiveData<List<MetroStation>> getMetroStations(){
+        List<MetroStation> metroStationList=mapRepository.getMetroStations();
+        stations.postValue(metroStationList);
+        return stations;
     }
 }

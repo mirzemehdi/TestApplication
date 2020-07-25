@@ -15,6 +15,7 @@
     <string name="text_humidity">Humidity</string>
     <string name="text_wind">Wind</string>
     <string name="text_baku">Baku</string>
+    <string name="error_server">There is some problem while retrieving data</string>
 
 
     <string name="value_1">1</string>

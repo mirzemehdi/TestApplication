@@ -21,7 +21,7 @@ public class CalculatorViewModel extends AndroidViewModel {
     private final PreferencesManager preferencesManager;
     private final MutableLiveData<String> expression = new MutableLiveData<>();
     private final MutableLiveData<String> resultLiveData = new MutableLiveData<>();
-    private final MutableLiveData<Void> equalButton = new MutableLiveData<>();
+    private final MutableLiveData<Boolean> isOperationCompleted = new MutableLiveData<>();
 
 
     @ViewModelInject
@@ -30,13 +30,16 @@ public class CalculatorViewModel extends AndroidViewModel {
                                PreferencesManager preferencesManager) {
         super(application);
         this.calculatorRepository = calculatorRepository;
-        this.preferencesManager=preferencesManager;
+        this.preferencesManager = preferencesManager;
+
+        //Gets saved expression and result from Shared Preferences
         expression.setValue(preferencesManager.getSavedString(KEY_EXPRESSION));
         resultLiveData.setValue(preferencesManager.getSavedString(KEY_RESULT));
+        if (resultLiveData.getValue() != null) isOperationCompleted.setValue(true);
     }
 
-    public LiveData<Void> getEqualButton() {
-        return equalButton;
+    public LiveData<Boolean> getIsOperationCompleted() {
+        return isOperationCompleted;
     }
 
     public MutableLiveData<String> getExpression() {
@@ -49,10 +52,12 @@ public class CalculatorViewModel extends AndroidViewModel {
         return Transformations.map(expression, input -> {
             String expressionValue = getExpressionLiveDataValue();
             try {
-                String result =calculatorRepository.calculateExpression(expressionValue);
+                String result = calculatorRepository.calculateExpression(expressionValue);
                 resultLiveData.setValue(result);
-                preferencesManager.saveString(KEY_EXPRESSION,getExpressionLiveDataValue());
-                preferencesManager.saveString(KEY_RESULT,getResultLiveDataValue());
+
+                //Saves result and expression in Shared Preferences
+                preferencesManager.saveString(KEY_EXPRESSION, getExpressionLiveDataValue());
+                preferencesManager.saveString(KEY_RESULT, getResultLiveDataValue());
                 return result;
             } catch (NumberFormatException e) {
                 return resultLiveData.getValue();
@@ -62,14 +67,30 @@ public class CalculatorViewModel extends AndroidViewModel {
     }
 
     public void onButtonClicked(String value) {
+        boolean isCompleted = false;
+        if (isOperationCompleted.getValue() != null)
+            isCompleted = isOperationCompleted.getValue();
+
+
+        /*  If " = " button is clicked then if next clicked button is "+" then we add result
+            otherwise, new number will be written in expression textView
+         */
+        if (isCompleted) {
+            if (value.equals("+") || value.equals("="))
+                expression.setValue(getResultLiveDataValue());
+            else expression.setValue("");
+        }
+
+
         String currentExpr = getExpressionLiveDataValue();
         String finalExpr = calculatorRepository.getExpression(currentExpr, value);
         if (value.equals("=")) {
-            equalButton.setValue(null);
-            expression.setValue(getResultLiveDataValue());
+            isOperationCompleted.setValue(true);
 
-        } else
+        } else {
+            isOperationCompleted.setValue(false);
             expression.setValue(finalExpr);
+        }
     }
 
     private String getExpressionLiveDataValue() {
